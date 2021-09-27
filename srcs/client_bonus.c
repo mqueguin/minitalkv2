@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 14:31:57 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/27 16:14:35 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/27 16:20:33 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static	void	send_bit(int pid, unsigned char bit)
 		{
 			if (kill(pid, SIGUSR2) != 0)
 			{
-				write(2, "Error\nUnable to send signal\n", 28);
+				ft_putstr_fd("Error\nUnable to send signal\n", 2);
 				exit(0);
 			}
 			ft_wait_sig();
@@ -44,7 +44,7 @@ static	void	send_bit(int pid, unsigned char bit)
 		{
 			if (kill(pid, SIGUSR1) != 0)
 			{
-				write(2, "Error\nUnable to send signal\n", 43);
+				ft_putstr_fd("Error\nUnable to send signal\n", 2);
 				exit(0);
 			}
 			ft_wait_sig();
@@ -73,7 +73,7 @@ int	main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		write(2, "Error\nExpected 2 arguments: pid and string\n", 43);
+		ft_putstr_fd("Error\nExpected 2 arguments: pid and string\n", 2);
 		return (-1);
 	}
 	if (!ft_check_pid(av[1]))

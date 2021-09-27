@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 14:31:57 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/27 16:15:04 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/27 16:24:17 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static	void	send_bit(int pid, unsigned char bit)
 		{
 			if (kill(pid, SIGUSR2) != 0)
 			{
-				write(2, "Error\nUnable to send signal\n", 28);
+				ft_putstr_fd("Error\nUnable to send signal\n", 2);
 				exit(0);
 			}
 			ft_wait_sig();
@@ -44,7 +44,7 @@ static	void	send_bit(int pid, unsigned char bit)
 		{
 			if (kill(pid, SIGUSR1) != 0)
 			{
-				write(2, "Error\nUnable to send signal\n", 28);
+				ft_putstr_fd("Error\nUnable to send signal\n", 2);
 				exit(0);
 			}
 			ft_wait_sig();
@@ -55,7 +55,6 @@ static	void	send_bit(int pid, unsigned char bit)
 static	void	ft_handler(int sig)
 {
 	(void)sig;
-	ft_putstr_fd("Signal received\n", 1);
 	g_wait_sig = 1;
 }
 
@@ -66,7 +65,7 @@ int	main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		write(2, "Error\nExpected 2 arguments: pid and string\n", 43);
+		ft_putstr_fd("Error\nExpected 2 arguments: pid and string\n", 2);
 		return (-1);
 	}
 	if (!ft_check_pid(av[1]))

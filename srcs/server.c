@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 12:20:10 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/27 16:14:49 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/27 16:21:37 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	store_bit(int bit)
 	}
 	if (kill(g_buffer.pid, SIGUSR1) != 0)
 	{
-		write(2, "Error\nUnable to send signal to client\n", 38);
+		ft_putstr_fd("Error\nUnable to send signal to client\n", 2);
 		exit(0);
 	}
 }
@@ -64,7 +64,7 @@ void	ft_receive_bit(int sig, siginfo_t *si, void *arg)
 	g_buffer.pid = si->si_pid;
 	if (sig != SIGUSR1 && sig != SIGUSR2)
 	{
-		write(2, "Error\nThe received signal is not SIGUSR1 or SIGUSR2\n", 52);
+		ft_putstr_fd("Error\nThe received signal is not SIGUSR1 or SIGUSR2\n", 2);
 		exit(0);
 	}
 	if (sig == SIGUSR1 || sig == SIGUSR2)
@@ -82,7 +82,7 @@ int	main(void)
 	int					pid;
 
 	pid = getpid();
-	write(1, "The PID is : ", 13);
+	ft_putstr_fd("The PID is : ", 1);
 	ft_putnbr_fd(pid, 1);
 	write(1, "\n", 1);
 	ft_init();
