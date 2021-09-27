@@ -6,11 +6,11 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 12:20:10 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/27 13:22:05 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/27 16:14:49 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minitalk.h"
+#include "minitalk.h"
 
 t_buffer	g_buffer;
 

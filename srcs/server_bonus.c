@@ -6,7 +6,7 @@
 /*   By: mqueguin <mqueguin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 12:20:10 by mqueguin          #+#    #+#             */
-/*   Updated: 2021/09/23 14:29:10 by mqueguin         ###   ########.fr       */
+/*   Updated: 2021/09/27 16:14:24 by mqueguin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_receive_bit(int sig, siginfo_t *si, void *arg)
 int	main(void)
 {
 	struct sigaction	sa;
-	int			pid;
+	int					pid;
 
 	pid = getpid();
 	write(1, "The PID is : ", 13);
